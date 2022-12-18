@@ -37,7 +37,7 @@ public class Receipt {
             localTotal = inReceipt.getItem().getCost().multiply(BigDecimal.valueOf(inReceipt.getQty()));
             buffer.append(inReceipt.getQty() + " "+"\t")
                     .append(inReceipt.getItem().getName() + " " + "\t" );
-            if(!card.getId().equals(0)){
+            if(card.getId() != 0){
                 buffer.append(card.getDiscount()+"%\t");
                localTotal = localTotal.multiply(BigDecimal.valueOf((100-card.getDiscount())/100));
             }else if(inReceipt.getQty()>=10 && inReceipt.getItem().isInSale()){
@@ -49,7 +49,7 @@ public class Receipt {
                     .append( localTotal + " " + "\t"+ "\n");
             total = total.add(localTotal);
         }
-        if(!card.getId().equals(0)){
+        if(card.getId() != 0){
             buffer.append("card  " + card.getId()+"\n");
         }
         buffer.append("Total  " + total);

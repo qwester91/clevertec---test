@@ -13,10 +13,10 @@ import by.harashchenia.service.converter.FromMapArgsToItems;
 import java.util.List;
 import java.util.Map;
 
-public class FromCommandLineService implements IService {
+public class Service implements IService {
      private Map<String,String> commandLineArgs;
      private Card card;
-    public FromCommandLineService(Map<String, String> commandLineArgs) {
+    public Service(Map<String, String> commandLineArgs) {
         this.commandLineArgs = commandLineArgs;
     }
     @Override

@@ -1,7 +1,7 @@
 package by.harashchenia.service.serviceFactory;
 
 import by.harashchenia.service.api.IService;
-import by.harashchenia.service.FromCommandLineService;
+import by.harashchenia.service.Service;
 import by.harashchenia.service.converter.FromFileToMapArgs;
 import by.harashchenia.service.serviceFactory.api.IServiceFactory;
 
@@ -21,10 +21,10 @@ public class ServiceFactory implements IServiceFactory {
 
         }
         if (!commandLineArgs.containsKey("filePath")){
-            return new FromCommandLineService(commandLineArgs);
+            return new Service(commandLineArgs);
         }else
         {FromFileToMapArgs fromFileToMapArgs = new FromFileToMapArgs();
             Map<String, String> fileArgs = fromFileToMapArgs.readFromFile(commandLineArgs.get("filePath"));
-            return new FromCommandLineService(fileArgs);}
+            return new Service(fileArgs);}
     }
 }
